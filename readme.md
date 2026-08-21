@@ -4,7 +4,7 @@
 
 ## Moduuli 1
 
-En ole vielä tehnyt yhtäkään harjoituksista.
+Olen tehnyt seuraavat harjoitukset: 1 ja 2.
 
 ## Moduuli 2
 
