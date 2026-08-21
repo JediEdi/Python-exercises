@@ -1,2 +1,2 @@
 #edellinen ei toiminut
-print("Kyseessä on versio 2")
+print("Nyt testaan VSCoden sisäistä committaamista.")
