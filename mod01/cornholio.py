@@ -1,2 +1,2 @@
-string amogus:("sus")
-print(amogus)
+#edellinen ei toiminut
+print("Kyseessä on versio 2")

@@ -4,7 +4,7 @@
 
 ## Moduuli 1
 
-En ole vielä tehnyt vittuakaan.
+En ole vielä tehnyt yhtäkään harjoituksista.
 
 ## Moduuli 2
 
