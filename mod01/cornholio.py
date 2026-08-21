@@ -1,2 +1,2 @@
 #edellinen ei toiminut
-print("Nyt testaan GitHubiin committaamista VSCodesta.")
+print("Tämä versio, samoin kuin edeltävä, pushaan GitHubiin yhtä aikaa, mutta committaan eri aikoihin.")
