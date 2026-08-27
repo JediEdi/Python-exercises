@@ -1,7 +1,18 @@
+import time
 user = input("-Mikä on nimenne?\nVastaus: ")
+time.sleep (2)
 print("-Ehtoota, " + user + ".")
+time.sleep (2)
 robot = input("-Mutta mikä on minun nimeni??\nVastaus: ")
+time.sleep (1)
 print("-Huh. Luulin jo unohtaneeni. Olen " + robot + ", ja sinä olet " + user + ".")
-user = robot
-print ("#OVERRIDE: user = robot #")
+if len(user) >2 and len(robot) >2:
+    user = robot[:2] + user[:-2]
+    robot = user[:1] + robot[-3]
+else:
+    robot = user + robot + user
+    user = robot
+time.sleep (5)
+print ("Error: DATA CORRUPTION DETECTED")
+time.sleep (3)
 print ("-Häh. Nimeni on " + robot + "... Nimesi on " + user + "... NOOOOOOO!!!")
