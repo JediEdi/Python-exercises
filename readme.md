@@ -11,3 +11,5 @@ Olen tehnyt seuraavat harjoitukset: 1 ja 2.
 
 
 ## Moduuli 3
+
+Olen tehnyt seuraavat harjoitukset: 3.
