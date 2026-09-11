@@ -26,3 +26,13 @@ Olen tehnyt seuraavat harjoitukset: 1, 2, 3 ja 4.
 ## Moduuli 6
 
 Olen tehnyt seuraavat harjoitukset: 1 ja 2.
+
+
+## Moduuli 7
+
+Olen tehnyt seuraavat harjoitukset: 1, 2 ja 3.
+
+
+## Moduuli 8
+
+Olen tehnyt seuraavat harjoitukset: 1 ja 2
