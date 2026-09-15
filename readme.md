@@ -35,4 +35,4 @@ Olen tehnyt seuraavat harjoitukset: 1, 2 ja 3.
 
 ## Moduuli 8
 
-Olen tehnyt seuraavat harjoitukset: 1 ja 2
+Olen tehnyt seuraavat harjoitukset: 1, 2 ja 3.
