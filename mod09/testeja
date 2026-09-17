@@ -1,0 +1,56 @@
+# Luokkien nimet kirjoitetaan isolla alkukirjaimella, esim: OpiskelijaMetropolia
+import random
+
+class Ajoneuvo:
+    def __init__(self, merkki, malli, huippunopeus, rohkea_kuski = 0):
+        self.merkki = merkki
+        self.malli = malli
+        self.huippunopeus = huippunopeus
+        self.nickname = (merkki + str(huippunopeus))
+        if self.huippunopeus >= 120:
+            self.nopea = 1
+        else:
+            self.nopea = 0
+        self.rohkea_kuski = rohkea_kuski
+
+    def aja_perille(self, matka, nopeusrajoitus): # Spaghetti time. Mmm.
+        sanktio = 0
+        if ((self.huippunopeus >= nopeusrajoitus) and self.rohkea_kuski == 1):
+            if random.randint(1, 5) >= 3:
+                print (self.nickname + " sai ylinopeussakot! Matkaan menee puoli tuntia enemmän!")
+                sanktio = sanktio + 0.5
+            if random.randint (1, 10) >= 9:
+                print (self.nickname + " kolaroi puuhun! Puolen tunnin toipumisen jälkeen kuski kävelee perille!")
+                sanktio = sanktio + 0.5
+                self.huippunopeus = 5
+            matkan_kesto = ((matka / self.huippunopeus) + sanktio)
+        elif (self.huippunopeus < nopeusrajoitus):
+            matkan_kesto = (matka / self.huippunopeus)
+        else:
+            matkan_kesto = (matka / nopeusrajoitus)
+        print (matkan_kesto)
+        if matkan_kesto > (3 * (matka / nopeusrajoitus)):
+            print ("Auton " + self.nickname + " kuskia vituttaa huolella! Hän olisi päässyt perille paljon nopeammin seuraamalla nopeusrajoitusta, kuten vanha mummo! Päivä on pilalla.")
+
+halpa_auto = Ajoneuvo("Suzuki", "Esteem", 10)
+
+print (halpa_auto.merkki + halpa_auto.malli + str(halpa_auto.huippunopeus))
+print (halpa_auto.nickname)
+
+halpa_auto.aja_perille(240, 80)
+
+
+kallis_auto = Ajoneuvo("Mercedes Benz", "E-Sarja", 120)
+print ("\n")
+print (kallis_auto.merkki + kallis_auto.malli + str(kallis_auto.huippunopeus))
+print (kallis_auto.nickname)
+
+kallis_auto.aja_perille(240, 80)
+
+
+rikollinen_auto = Ajoneuvo("Porsche", "Custom amis", 200, 1)
+print ("\n")
+print (rikollinen_auto.merkki + rikollinen_auto.malli + str(rikollinen_auto.huippunopeus))
+print (rikollinen_auto.nickname)
+
+rikollinen_auto.aja_perille(240, 80)

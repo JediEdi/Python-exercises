@@ -1,6 +1,6 @@
 custom_nimet = set() # setti on ehkä buginen. nimet on vaan muuttujia? canon nimi on muuttujan nimi, arvo on joko canon nimi tai randomoitu
-pelaajan_nimi = ("Testeri") # DEBUG - LAITA POIS LOPULLISESSA VERSIOSSA
-pelaajan_ika = 20 # DEBUG - LAITA POIS LOPULLISESSA VERSIOSSA
+# pelaajan_nimi = ("Testeri") # DEBUG - LAITA POIS LOPULLISESSA VERSIOSSA
+# pelaajan_ika = 20 # DEBUG - LAITA POIS LOPULLISESSA VERSIOSSA
 def paavalikko():
     numerovalinta = input ("\nMinkä komennon haluatte suorittaa?\n1: Pelaa peliä\n2: Asetukset\n3: Poistu pelistä\nVastaus: ")
     if numerovalinta == "1":
@@ -31,8 +31,8 @@ def paavalikko():
         print ("\nMoro.")
 
 print ("Tervetuloa Evoluutiomiehen maailmaan.")
-# pelaajan_nimi = input("Mikä on nimenne?\nVastaus: ") # DEBUG - LAITA PÄÄLLE LOPULLISESSA VERSIOSSA
-# pelaajan_ika = int(input("Mikä on ikänne?\nVastaus kokonaislukuna: ")) # DEBUG - LAITA PÄÄLLE LOPULLISESSA VERSIOSSA
+pelaajan_nimi = input("Mikä on nimenne?\nVastaus: ") # DEBUG - LAITA PÄÄLLE LOPULLISESSA VERSIOSSA
+pelaajan_ika = int(input("Mikä on ikänne?\nVastaus kokonaislukuna: ")) # DEBUG - LAITA PÄÄLLE LOPULLISESSA VERSIOSSA
 print (f"\nPelaajan nimi: {pelaajan_nimi} \nPelaajan ikä: {pelaajan_ika} ")
 if pelaajan_ika < 12:
     print ("\nOlette alaikäinen. Ette voi pelata.")
