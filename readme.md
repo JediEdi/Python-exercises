@@ -40,3 +40,7 @@ Olen tehnyt seuraavat harjoitukset: 1, 2 ja 3.
 ## Moduuli 9
 
 Olen tehnyt seuraavat harjoitukset: 1, 2, 3 ja 4.
+
+## Moduuli 10
+
+Olen tehnyt seuraavat harjoitukset: 1, 2, ja 3.

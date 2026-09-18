@@ -32,25 +32,38 @@ class Ajoneuvo:
         if matkan_kesto > (3 * (matka / nopeusrajoitus)):
             print ("Auton " + self.nickname + " kuskia vituttaa huolella! Hän olisi päässyt perille paljon nopeammin seuraamalla nopeusrajoitusta, kuten vanha mummo! Päivä on pilalla.")
 
-halpa_auto = Ajoneuvo("Suzuki", "Esteem", 10)
+pelaajan_auto_merkki = input ("Anna ajoneuvosi merkki\nVastaus: ")
+pelaajan_auto_malli = input ("\nAnna ajoneuvosi malli\nVastaus: ")
+pelaajan_auto_huippunopeus = int(input ("\nAnna ajoneuvosi huippunopeus\nVastaus kokonaislukuna: "))
+pelaajan_auto_rohkea_kuski = int(input ("\nOnko kuski valmis ylittämään nopeusrajoitukset?\nVastaus ykkösenä tai nollana: "))
 
-print (halpa_auto.merkki + halpa_auto.malli + str(halpa_auto.huippunopeus))
-print (halpa_auto.nickname)
+pelaajan_auto = Ajoneuvo(pelaajan_auto_merkki, pelaajan_auto_malli, pelaajan_auto_huippunopeus, pelaajan_auto_rohkea_kuski)
 
-halpa_auto.aja_perille(240, 80)
+pelaajan_matka = int(input ("\nKuinka pitkän matkan haluat autosi ajavan?\nVastaus kokonaislukuna (km): "))
+pelaajan_nopeusrajoitus = int(input ("\nKuinka suuren nopeusrajoituksen haluat matkalle?\nVastaus kokonaislukuna (km/h): "))
 
-
-kallis_auto = Ajoneuvo("Mercedes Benz", "E-Sarja", 120)
-print ("\n")
-print (kallis_auto.merkki + kallis_auto.malli + str(kallis_auto.huippunopeus))
-print (kallis_auto.nickname)
-
-kallis_auto.aja_perille(240, 80)
+pelaajan_auto.aja_perille(pelaajan_matka, pelaajan_nopeusrajoitus)
 
 
-rikollinen_auto = Ajoneuvo("Porsche", "Custom amis", 200, 1)
-print ("\n")
-print (rikollinen_auto.merkki + rikollinen_auto.malli + str(rikollinen_auto.huippunopeus))
-print (rikollinen_auto.nickname)
+# halpa_auto = Ajoneuvo("Suzuki", "Esteem", 10)
 
-rikollinen_auto.aja_perille(240, 80)
+# print (halpa_auto.merkki + halpa_auto.malli + str(halpa_auto.huippunopeus))
+# print (halpa_auto.nickname)
+
+# halpa_auto.aja_perille(240, 80)
+
+
+# kallis_auto = Ajoneuvo("Mercedes Benz", "E-Sarja", 120)
+# print ("\n")
+# print (kallis_auto.merkki + kallis_auto.malli + str(kallis_auto.huippunopeus))
+# print (kallis_auto.nickname)
+
+# kallis_auto.aja_perille(240, 80)
+
+
+# rikollinen_auto = Ajoneuvo("Porsche", "Custom amis", 200, 1)
+# print ("\n")
+# print (rikollinen_auto.merkki + rikollinen_auto.malli + str(rikollinen_auto.huippunopeus))
+# print (rikollinen_auto.nickname)
+
+# rikollinen_auto.aja_perille(240, 80)
