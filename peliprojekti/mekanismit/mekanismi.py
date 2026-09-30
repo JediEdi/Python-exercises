@@ -1,4 +1,7 @@
 class Mekanismi():
-    def __init__(self, nimi, tilavuus):
+    def __init__(self, nimi):
         self.nimi = nimi
-        self.tilavuus = tilavuus
+
+    def kayta_esineella(self, pelaaja, esine):
+        if esine in pelaaja.esineet:
+            print (f"Käytit mekanismin {self.nimi}!")
