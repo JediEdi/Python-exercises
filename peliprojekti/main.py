@@ -50,10 +50,5 @@ else:
         huone_2_2.lisaa_esine(kartta)
         huone_2_2.lisaa_mekanismi(nappi)
         pelaaja = Pelaaja(pelaajan_nimi, huone_2_2)
-        pelaaja.katso_ymparille()
-        pelaaja.lisaa_esine(kartta)
-        pelaaja.luettele_esineet()
-        pelaaja.kayta_esine(1)
-        pelaaja.liiku("P")
-        pelaaja.katso_ymparille()
-        pelaaja.liiku("P")
+        while 1 == 1:
+            pelaaja.valikko()
