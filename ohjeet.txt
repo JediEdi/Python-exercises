@@ -1,0 +1,8 @@
+Tämä on text adventure -tyylinen peli. 
+
+Päävalikossa voitte luoda uuden pelin, ladata tallennustiedoston pelaajahahmon nimen mukaan, tai poistua pelistä.
+
+Vastoin yleistä kaavaa, valtaosa toiminnoista suoritetaan valikon kautta numeronäppäimillä ja yksittäisillä kirjaimilla.
+Pelissä käytetään neljää pääilmansuuntaa navigointiin. Jos haluatte esimerkiksi liikkua länteen, valitkaa "Liiku"-toiminto ja kirjoittakaa L.
+Pelissä mekanismeiksi luetaan kaikki toiminnalliset asiat, jotka eivät mahdu tavaraluetteloon. Napit, ovet ja muut vastaavat ovat mekanismeja.
+Muistakaa: Mekanismit eivät välttämättä vaikuta huoneeseen, jossa ne sijaitsevat.

@@ -9,21 +9,29 @@ class Pelaaja():
         if suunta == "P":
             if self.sijainti.pohjoisessa.nimi == "ei mitään":
                 print ("Pohjoisessa ei ole mitään.")
+            elif self.sijainti.pohjoinen_estetty == True:
+                print ("Reitillä pohjoiseen on este!")
             else:
                 self.sijainti = self.sijainti.pohjoisessa
         if suunta == "I":
             if self.sijainti.idassa.nimi == "ei mitään":
                 print ("Idässä ei ole mitään.")
+            elif self.sijainti.ita_estetty == True:
+                print ("Reitillä itään on este!")
             else:
                 self.sijainti = self.sijainti.idassa
         if suunta == "E":
             if self.sijainti.etelassa.nimi == "ei mitään":
                 print ("Etelässä ei ole mitään.")
+            elif self.sijainti.etela_estetty == True:
+                print ("Reitillä etelään on este!")
             else:
                 self.sijainti = self.sijainti.etelassa
         if suunta == "L":
             if self.sijainti.lannessa.nimi == "ei mitään":
                 print ("Lännessä ei ole mitään.")
+            elif self.sijainti.lansi_estetty == True:
+                print ("Reitillä länteen on este!")
             else:
                 self.sijainti = self.sijainti.lannessa
 
@@ -60,6 +68,13 @@ class Pelaaja():
             numero += 1
             print (f"{numero}: {esine.nimi}")
 
+    def serialisoi_esineet(self):
+        self.esineet_serialisoitu = []
+        for esine in self.esineet:
+            self.esineet_serialisoitu.append(esine.id)
+        return self.esineet_serialisoitu
+
+
     def valikko(self):
         print (f"\nLista mahdollisista toiminnoista:\n1. Liiku\n2. Katso ympärille\n3. Käytä esine tavaraluettelossa\n4. Nouki esine ympäristöstä\n5. Vuorovaikuta mekanismin kanssa\n0. Poistu")
         numerovalinta = input("Mitä haluatte tehdä? Vastaus numerona: ")
@@ -80,6 +95,6 @@ class Pelaaja():
         elif numerovalinta == "5":
             mekanismivalinta = int(input("Minkä mekanismin kanssa haluatte vuorovaikuttaa? Vastaus numerona: ")) - 1
             if mekanismivalinta < len(self.sijainti.mekanismit):
-                self.sijainti.mekanismit[mekanismivalinta].kayta_mekanismi
+                self.sijainti.mekanismit[mekanismivalinta].kayta_mekanismi()
         elif numerovalinta == "0":
-            return
+            return "0"
