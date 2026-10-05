@@ -6,27 +6,27 @@
 
 **Rakenne**
 
-Peliprojekti
+    Peliprojekti
 
     |- esineet (mahtuu pelaajan tavaraluetteloon tai huoneeseen, voi lukea ja käyttää)
 
-        |- __init__.py (rehellisesti en tiedä, mitä tämä tekee)
+        |- __init__.py (ei ilmeisesti pakollinen, mutta varmuuden vuoksi täällä)
 
-        |_ esine.py (sisältää esine-luokan ja kartoille, kirjoille ym. käytettävän luettava-alaluokan)
+        |_ esine.py (sisältää esine-luokan ja kartoille, kirjoille ym. käytettävän luettava-alaluokan. jokaisella on tunnusluku, id, jota käytetään tallentamiseen)
 
-    |- huoneet (sisältää esineitä, mekanismeja ja pelaajan, huoneita voi kiinnittää toisiinsa neljässä ilmansuunnassa)
+    |- huoneet (sisältää esineitä, mekanismeja ja pelaajan, huoneita voi kiinnittää toisiinsa neljässä ilmansuunnassa ja niiden neljässä ilmansuunnassa voi olla este)
 
-        |- __init__.py (rehellisesti en tiedä, mitä tämä tekee)
+        |- __init__.py (ei ilmeisesti pakollinen, mutta varmuuden vuoksi täällä)
 
-        |_ huone.py (sisältää huone-luokan ja kartan rajana toimivan tyhjä-alaluokan)
+        |_ huone.py (sisältää huone-luokan, kartan rajana toimivan tyhjä-alaluokan ja korjaa huoneet -metodin, joka varmistaa, ettei huoneiden yhteydet riko fysiikan lakeja. jokaisella on tunnusluku, id, jota käytetään tallentamiseen)
 
     |- mekanismit (eivät mahdu pelajaan tavaraluetteloon, mutta mahtuvat huoneeseen, voivat vaatia esineen toimiakseen)
 
-        |- __init__.py (rehellisesti en tiedä, mitä tämä tekee)
+        |- __init__.py (ei ilmeisesti pakollinen, mutta varmuuden vuoksi täällä)
 
-        |_ mekanismi.py (sisältää mekanismi-luokan. tarkemmat toiminnot selvitän projektin edetessä tarpeen mukaan)
+        |_ mekanismi.py (sisältää mekanismi-luokan ja este-alaluokan, jolla tukitaan huoneiden ilmansuuntia)
 
-    |- main.py (päävalikko ja itse peli)
+    |- main.py (päävalikko, tallentaminen, lataaminen ja itse peli)
 
     |_ pelaaja.py (nimi, tavaraluettelo ja sijainti, voi liikkua huoneesta toiseen sekä käyttää esineitä, ja mekanismeja)
     
