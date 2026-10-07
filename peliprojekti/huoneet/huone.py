@@ -1,11 +1,13 @@
 class Huone():
     lista_huoneista = []
-    def __init__(self, nimi, pohjoisessa, idassa, etelassa, lannessa, pohjoinen_estetty = False, ita_estetty = False, etela_estetty = False, lansi_estetty = False):
+    def __init__(self, nimi, pohjoisessa, idassa, etelassa, lannessa, prepositio = "huoneessa, jonka nimi on {nimi}", kuvaus = "", pohjoinen_estetty = False, ita_estetty = False, etela_estetty = False, lansi_estetty = False):
         self.nimi = nimi
         self.pohjoisessa = pohjoisessa
         self.idassa = idassa
         self.etelassa = etelassa
         self.lannessa = lannessa
+        self.prepositio = prepositio
+        self.kuvaus = kuvaus
         self.pohjoinen_estetty = pohjoinen_estetty
         self.ita_estetty = ita_estetty
         self.etela_estetty = etela_estetty
@@ -68,5 +70,6 @@ class Huone():
         return self.esteet_serialisoitu
 
 class Tyhja(Huone):
-    def __init__(self, nimi = "ei mitään"):
+    def __init__(self, nimi = "ei mitään", prepositio = "ei missään. Teidän ei kuuluisi olla täällä."):
         self.nimi = nimi
+        self.prepositio = prepositio

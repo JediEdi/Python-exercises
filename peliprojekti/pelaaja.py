@@ -37,14 +37,24 @@ class Pelaaja():
 
     def katso_ymparille(self):
         numero = 0
-        print (f"\nOlette huoneessa nimeltään {self.sijainti.nimi}.")
-        print ("\nHuoneessa on seuraavat esineet:")
+        print (f"\nOlette {self.sijainti.prepositio}.")
+        if self.sijainti.kuvaus != "":
+            print (self.sijainti.kuvaus)
+        if self.sijainti.pohjoinen_estetty == True:
+            print ("\nPohjoiseen on pääsy estetty.")
+        if self.sijainti.ita_estetty == True:
+            print ("Itään on pääsy estetty.")
+        if self.sijainti.etela_estetty == True:
+            print ("Etelään on pääsy estetty.")
+        if self.sijainti.lansi_estetty == True:
+            print ("Länteen on pääsy estetty.")
+        print (f"\n{self.sijainti.prepositio} on seuraavat esineet:")
         for esine in self.sijainti.esineet:
             numero += 1
             print (f"{numero}: {esine.nimi}")
 
         numero = 0
-        print ("\nHuoneessa on seuraavat mekanismit:")
+        print (f"\n{self.sijainti.prepositio} on seuraavat mekanismit:")
         for mekanismi in self.sijainti.mekanismit:
             numero += 1
             print (f"{numero}: {mekanismi.nimi}")
@@ -68,11 +78,11 @@ class Pelaaja():
             numero += 1
             print (f"{numero}: {esine.nimi}")
 
-    def serialisoi_esineet(self):
-        self.esineet_serialisoitu = []
-        for esine in self.esineet:
-            self.esineet_serialisoitu.append(esine.id)
-        return self.esineet_serialisoitu
+    # def serialisoi_esineet(self):
+    #     self.esineet_serialisoitu = []
+    #     for esine in self.esineet:
+    #         self.esineet_serialisoitu.append(esine.id)
+    #     return self.esineet_serialisoitu
 
 
     def valikko(self):
