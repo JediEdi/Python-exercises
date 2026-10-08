@@ -1,13 +1,13 @@
 
-# with open ("ohjeet.txt", "r", encoding="utf-8") as tiedosto: # DEBUG - LAITA PÄÄLLE LOPULLISESSA VERSIOSSA
-#     data = tiedosto.read()
-#     print (data)
-# input ("Kirjoittakaa jotain, jos olette ymmärtäneet ohjeet: ")
+with open ("ohjeet.txt", "r", encoding="utf-8") as tiedosto: # DEBUG - LAITA PÄÄLLE LOPULLISESSA VERSIOSSA
+    data = tiedosto.read()
+    print (data)
+input ("Kirjoittakaa jotain, jos olette ymmärtäneet ohjeet: ")
 
-# with open ("intro.txt", "r", encoding="utf-8") as tiedosto:
-#     data = tiedosto.read()
-#     print (data)
-# input ("Kirjoittakaa jotain, jos haluatte vihdoin peliin: ")
+with open ("intro.txt", "r", encoding="utf-8") as tiedosto:
+    data = tiedosto.read()
+    print (data)
+input ("Kirjoittakaa jotain, jos haluatte vihdoin peliin: ")
 
 def paavalikko():
     numerovalinta = input ("\nMinkä komennon haluatte suorittaa?\n1: Uusi peli\n2: Lataa peli\n3: Poistu pelistä\nVastaus: ")
@@ -20,21 +20,21 @@ def paavalikko():
         print ("\nMoro.")
         return numerovalinta, custom_nimet
 
-# pelaajan_nimi = input("Mikä on nimenne?\nVastaus: ") # DEBUG - LAITA PÄÄLLE LOPULLISESSA VERSIOSSA
-# pelaajan_ika = int(input("Mikä on ikänne?\nVastaus kokonaislukuna: ")) # DEBUG - LAITA PÄÄLLE LOPULLISESSA VERSIOSSA
+pelaajan_nimi = input("Mikä on nimenne?\nVastaus: ") # DEBUG - LAITA PÄÄLLE LOPULLISESSA VERSIOSSA
+pelaajan_ika = int(input("Mikä on ikänne?\nVastaus kokonaislukuna: ")) # DEBUG - LAITA PÄÄLLE LOPULLISESSA VERSIOSSA
 
 import json
 from esineet import Esine, Luettava
 from huoneet import Huone, Tyhja
 from mekanismit import Mekanismi, Este, Kaivinkone
 from pelaaja import Pelaaja
-pelaajan_nimi = ("Testeri") # DEBUG - LAITA POIS LOPULLISESSA VERSIOSSA
-pelaajan_ika = 20 # DEBUG - LAITA POIS LOPULLISESSA VERSIOSSA
+# pelaajan_nimi = ("Testeri") # DEBUG - LAITA POIS LOPULLISESSA VERSIOSSA
+# pelaajan_ika = 20 # DEBUG - LAITA POIS LOPULLISESSA VERSIOSSA
 
 # -- Huoneet --
 huone_2_2 = Huone("Asunto", "auto", "auto", "auto", "auto", "asunnossanne", "Niin paljon huonekaluja, perheen muistoesineitä ja kodinkoneita... Mitään niistä ei voi juoda. Jatkakaa.")
 huone_2_3 = Huone("Käytävä", "auto", "auto", huone_2_2, "auto", "asuntorakennuksen käytävässä", "Hmm. Ramin etuovi pohjoisessa on auki...")
-huone_2_4 = Huone("Ramin asunto", "auto,", "auto", huone_2_3, "auto", "ramin asunnossa", "Asunto on tyhjä? Hän aina valitti köyhyyttään, mutta tämä tuli yllätyksenä. Hetkinen, lattialla on lappu...")
+huone_2_4 = Huone("Ramin asunto", "auto", "auto", huone_2_3, "auto", "ramin asunnossa", "Asunto on tyhjä? Hän aina valitti köyhyyttään, mutta tämä tuli yllätyksenä. Hetkinen, lattialla on lappu...")
 huone_3_3 = Huone("Eteinen", "auto", "auto", "auto", huone_2_3, "eteisessä", "Näissä etuoven asunnoissa kuulee varmaan jokaisen sisääntulijan. Siis kuuli.", False, True, False, False)
 huone_3_4 = Huone("Irenen asunto", "auto", "auto", huone_3_3, "auto", "Irenen asunnossa", "Irene oli yksi ensimmäisistä, jotka lähtivät täältä. Itse ette pitäneet sitä hyökyaaltoa juuri minään. Ettekä vieläkään pidä.")
 
@@ -50,9 +50,9 @@ huone_u_1 = Huone("Tunnelin alku", Tyhja(), "auto", "auto", "auto", "tunnelin al
 huone_u_0 = Huone("ei mitään?", "auto", huone_5_2, huone_u_1, "auto", "maakuopan ympärillä", "Tuolla on jotain... Hypätkää alas. Ilma ottaa kopin.")
 huone_u_2 = Huone("Tunneli", "auto", "auto", "auto", huone_u_1, "jossain päin tunnelia")
 huone_u_3 = Huone("Tunneli", "auto", "auto", "auto", huone_u_2, "jossain päin tunnelia")
-huone_u_4 = Huone("Tunneli", "auto", "auto", "auto", huone_u_3, "jossain päin tunnelia")
+maali = Huone("Presidentin huvila, KEITTIÖ", huone_6_4, "auto", huone_6_2, "auto", "presidentin huvilan keittiössä", "TÄÄLLÄ ON VETTÄ.")
+huone_u_4 = Huone("Tunneli", maali, "auto", "auto", huone_u_3, "jossain päin tunnelia")
 
-maali = Huone("Presidentin huvila, KEITTIÖ", huone_6_4, huone_u_4, huone_6_2, "auto", "presidentin huvilan keittiössä", "TÄÄLLÄ ON VETTÄ.")
 
 for huone in Huone.lista_huoneista:
     huone.korjaa_huoneet()
@@ -146,6 +146,7 @@ else:
         huone_3_4.lisaa_esine(irene_kirja)
         huone_u_1.lisaa_esine(lore_dump)
         huone_6_4.lisaa_esine(tikkaat)
+        maali.lisaa_esine(malja)
         pelaaja = Pelaaja(pelaajan_nimi, huone_2_2)
         
         while pelaaja.valikko() != "0":

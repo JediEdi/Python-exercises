@@ -79,32 +79,38 @@ class Kaivinkone(Este): # Ei ole idyllinen käyttö luokalle, mutta on kiire.
             while seina_hp > 0:
                 print ("Edessänne on viisi kahvaa, kolme poljinta ja kaksi nappia. Missään ei ole ohjeita. Avain on jo koneessa, mutta kone ei ole käynnissä.")
                 numerovalinta = input("Mitä haluatte tehdä?\n1: Kahva vasemmalla\n2: Kahva edessänne\n3: Kahva etuoikealla\n4: Kahva keskioikealla\n5: Kahva oikealla\n6: Poljin vasemmalla\n7: Poljin keskellä\n8: Poljin oikealla\n9: Nappi edessänne\n10: Nappi vieressänne\n0: POIS TÄÄLTÄ\nVastaus numerona: ")
-                if numerovalinta != "9" and numerovalinta != "4" and numerovalinta != "7":
+                if numerovalinta == "1":
                     if virta == False:
                         print ("Mitään ei tapahdu.")
-                elif numerovalinta == "1":
-                    print ("Koura liikkuu ulommas.")
-                    if suunta == "etelään" and etaisyys == 2:
-                        if seina_hp == 2:
-                            print ("Koura törmää seinään ja jättää jälkeensä tuhoa, sirpaleita ja murtumia. Seinä on kuitenkin yhä tolpillaan. Tee se uudelleen.")
-                            seina_hp = 1
-                        elif seina_hp == 1:
-                            print ("Tällä kertaa koura leikkaa suoraan seinän läpi. Tunnette hytissä tärähdyksiä vielä useita sekunteja osuman jälkeen. Seinä on murskattu.")
-                            seina_hp = 0
-                    elif suunta == "etelään" and etaisyys < 2:
-                        print ("Kouralla ei ole tilaa kerätä voimaa. Se tömähtää seinään heikosti. Seinälle ei käy kuinkaan.")
+                    else:
+                        print ("Koura liikkuu ulommas.")
+                        if suunta == "etelään" and etaisyys == 2:
+                            if seina_hp == 2:
+                                print ("Koura törmää seinään ja jättää jälkeensä tuhoa, sirpaleita ja murtumia. Seinä on kuitenkin yhä tolpillaan. Tee se uudelleen.")
+                                seina_hp = 1
+                            elif seina_hp == 1:
+                                print ("Tällä kertaa koura leikkaa suoraan seinän läpi. Tunnette hytissä tärähdyksiä vielä useita sekunteja osuman jälkeen. Seinä on murskattu.")
+                                seina_hp = 0
+                        elif suunta == "etelään" and etaisyys < 2:
+                            print ("Kouralla ei ole tilaa kerätä voimaa. Se tömähtää seinään heikosti. Seinälle ei käy kuinkaan.")
                 elif numerovalinta == "2":
-                    if suunta == "pohjoiseen":
-                        suunta = "itään"
-                    elif suunta == "itään":
-                        suunta = "etelään"
-                    elif suunta == "etelään":
-                        suunta = "länteen"
-                    elif suunta == "länteen":
-                        suunta = "pohjoiseen"
-                    print (f"Kaivinkone pyörii myötäpäivään. Se osoittaa nyt {suunta}.")
+                    if virta == False:
+                        print ("Mitään ei tapahdu.")
+                    else:
+                        if suunta == "pohjoiseen":
+                            suunta = "itään"
+                        elif suunta == "itään":
+                            suunta = "etelään"
+                        elif suunta == "etelään":
+                            suunta = "länteen"
+                        elif suunta == "länteen":
+                            suunta = "pohjoiseen"
+                        print (f"Kaivinkone pyörii myötäpäivään. Se osoittaa nyt {suunta}.")
                 elif numerovalinta == "3":
-                    print ("Koura liikkuu vaakasuorassa, mutta todella vähän. Huoltoryhmä on mokannut.")
+                    if virta == False:
+                        print ("Mitään ei tapahdu.")
+                    else:
+                        print ("Koura liikkuu vaakasuorassa, mutta todella vähän. Huoltoryhmä on mokannut.")
                 elif numerovalinta == "4":
                     if kasijarru == False:
                         print ("Kahva jäi asentoonsa. Kaivinkone nytkähti hieman. Jokin on nyt päällä.")
@@ -113,9 +119,12 @@ class Kaivinkone(Este): # Ei ole idyllinen käyttö luokalle, mutta on kiire.
                         print ("Palautatte kahvan alkuperäiseen asentoonsa.")
                         kasijarru = False
                 elif numerovalinta == "5":
-                    print ("Hytti keinahtaa lievästi.")
+                    if virta == False:
+                        print ("Mitään ei tapahdu.")
+                    else:
+                        print ("Hytti keinahtaa lievästi.")
                 elif numerovalinta == "6":
-                    if kasijarru == True or kytkin == False:
+                    if kasijarru == True or kytkin == False or virta == False:
                         print ("Mitään ei tapahdu.")
                     else:
                         if suunta == "etelään":
@@ -137,7 +146,7 @@ class Kaivinkone(Este): # Ei ole idyllinen käyttö luokalle, mutta on kiire.
                         print ("Kaivuri nytkähtää vähän. Tiedätte sen verran vanhasta teknologiasta, että tunnistatte tämän kytkimeksi. Pidätte sitä pohjassa.")
                         kytkin = True
                 elif numerovalinta == "8":
-                    if kasijarru == True or kytkin == False:
+                    if kasijarru == True or kytkin == False or virta == False:
                         print ("Mitään ei tapahdu.")
                     else:
                         if suunta == "etelään":
@@ -159,7 +168,10 @@ class Kaivinkone(Este): # Ei ole idyllinen käyttö luokalle, mutta on kiire.
                         print ("Kaivuri hiljenee ja hämärtyy taas.")
                         virta = False
                 elif numerovalinta == "10":
-                    print ("Ajovalot välähtävät hetkeksi päälle, mutta sammuvat heti.")
+                    if virta == False:
+                        print ("Mitään ei tapahdu.")
+                    else:
+                        print ("Ajovalot välähtävät hetkeksi päälle, mutta sammuvat heti.")
                 elif numerovalinta == "0":
                     return
             self.vaikutusalue.etela_estetty = False
