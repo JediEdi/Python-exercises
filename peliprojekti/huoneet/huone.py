@@ -22,6 +22,7 @@ class Huone():
             for huone in Huone.lista_huoneista:
                 if huone.etelassa == self:
                     self.pohjoisessa = huone
+                    break # Ei tarkisteta muita huoneita tämän ilmansuunnan suhteen, jos täsmää
                 else:
                     self.pohjoisessa = Tyhja()
 
@@ -29,6 +30,7 @@ class Huone():
             for huone in Huone.lista_huoneista:
                 if huone.lannessa == self:
                     self.idassa = huone
+                    break # Ei tarkisteta muita huoneita tämän ilmansuunnan suhteen, jos täsmää
                 else:
                     self.idassa = Tyhja()
 
@@ -36,6 +38,7 @@ class Huone():
             for huone in Huone.lista_huoneista:
                 if huone.pohjoisessa == self:
                     self.etelassa = huone
+                    break # Ei tarkisteta muita huoneita tämän ilmansuunnan suhteen, jos täsmää
                 else:
                     self.etelassa = Tyhja()
 
@@ -43,6 +46,7 @@ class Huone():
             for huone in Huone.lista_huoneista:
                 if huone.idassa == self:
                     self.lannessa = huone
+                    break # Ei tarkisteta muita huoneita tämän ilmansuunnan suhteen, jos täsmää
                 else:
                     self.lannessa = Tyhja()
 

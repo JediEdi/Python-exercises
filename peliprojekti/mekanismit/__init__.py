@@ -1,1 +1,1 @@
-from .mekanismi import Mekanismi, Este
+from .mekanismi import Mekanismi, Este, Kaivinkone

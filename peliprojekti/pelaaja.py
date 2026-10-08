@@ -3,6 +3,8 @@ class Pelaaja():
         self.nimi = nimi
         self.esineet = []
         self.sijainti = sijainti
+        self.tilavuusraja = 10
+        self.tilavuus = 0
 
     def liiku(self, suunta):
         self.suunta = suunta
@@ -68,8 +70,24 @@ class Pelaaja():
 
 
     def lisaa_esine(self, esine):
-        self.esineet.append(esine)
-        print (f"Saitte seuraavan esineeen: {esine.nimi}.")
+        if self.tilavuusraja >= self.tilavuus + esine.tilavuus:
+            self.esineet.append(esine)
+            self.tilavuus += esine.tilavuus
+            print (f"Saitte seuraavan esineeen: {esine.nimi}.")
+            if esine.printtaaja == True:
+                esine.kayta_esine()
+            return True
+        else:
+            print (f"Esine ei mahdu tavaraluetteloonne. ({self.tilavuus} / {self.tilavuusraja}. Esineen tilavuus on {esine.tilavuus})")
+            return False
+
+    def pudota_esine(self, esine_numero):
+        esine_numero -= 1
+        if esine_numero < len(self.esineet):
+            self.sijainti.esineet.append(self.esineet[esine_numero])
+            self.tilavuus -= self.esineet[esine_numero].tilavuus
+            print (f"Pudotitte maahan seuraavan esineeen: {self.esineet[esine_numero].nimi}.")
+            self.esineet.remove(self.esineet[esine_numero])
 
     def luettele_esineet(self):
         numero = 0
@@ -78,11 +96,11 @@ class Pelaaja():
             numero += 1
             print (f"{numero}: {esine.nimi}")
 
-    # def serialisoi_esineet(self):
-    #     self.esineet_serialisoitu = []
-    #     for esine in self.esineet:
-    #         self.esineet_serialisoitu.append(esine.id)
-    #     return self.esineet_serialisoitu
+    def serialisoi_esineet(self):
+        self.esineet_serialisoitu = []
+        for esine in self.esineet:
+            self.esineet_serialisoitu.append(esine.id)
+        return self.esineet_serialisoitu
 
 
     def valikko(self):
@@ -96,15 +114,19 @@ class Pelaaja():
         elif numerovalinta == "3":
             self.luettele_esineet()
             esinevalinta = int(input("Minkä esineen haluatte käyttää? Vastaus numerona: "))
-            self.kayta_esine(esinevalinta)
+            kayta_vai_pudota = input("Haluatteko käyttää vai pudottaa esineen? Vastaus (K / P): ")
+            if kayta_vai_pudota == "K":
+                self.kayta_esine(esinevalinta)
+            elif kayta_vai_pudota == "P":
+                self.pudota_esine(esinevalinta)
         elif numerovalinta == "4":
             esinevalinta = int(input("Minkä esineen haluatte noukkia? Vastaus numerona: ")) - 1
             if esinevalinta < len(self.sijainti.esineet):
-                self.lisaa_esine(self.sijainti.esineet[esinevalinta])
-                self.sijainti.esineet.pop(esinevalinta)
+                if self.lisaa_esine(self.sijainti.esineet[esinevalinta]) == True:
+                    self.sijainti.esineet.pop(esinevalinta)
         elif numerovalinta == "5":
             mekanismivalinta = int(input("Minkä mekanismin kanssa haluatte vuorovaikuttaa? Vastaus numerona: ")) - 1
             if mekanismivalinta < len(self.sijainti.mekanismit):
-                self.sijainti.mekanismit[mekanismivalinta].kayta_mekanismi()
+                self.sijainti.mekanismit[mekanismivalinta].kayta_mekanismi(self)
         elif numerovalinta == "0":
             return "0"
