@@ -1,4 +1,3 @@
-
 with open ("ohjeet.txt", "r", encoding="utf-8") as tiedosto: # DEBUG - LAITA PÄÄLLE LOPULLISESSA VERSIOSSA
     data = tiedosto.read()
     print (data)
@@ -16,16 +15,15 @@ def paavalikko():
             break
         except ValueError:
             print ("Kirjoittakaa joku edellä olevista numeroista. Pliide.")
+    return numerovalinta
 
-    if numerovalinta == "1":
-        return numerovalinta
-    elif numerovalinta == "2":
-        return numerovalinta
-    elif numerovalinta == "3":
-        print ("\nMoro.")
-        return numerovalinta
+while True:
+    pelaajan_nimi = input("Mikä on nimenne?\nVastaus: ") # DEBUG - LAITA PÄÄLLE LOPULLISESSA VERSIOSSA
+    if pelaajan_nimi == "":
+        print ("Yritetäänpä uudelleen.")
+    else:
+        break
 
-pelaajan_nimi = input("Mikä on nimenne?\nVastaus: ") # DEBUG - LAITA PÄÄLLE LOPULLISESSA VERSIOSSA
 while True:
     try:
         pelaajan_ika = int(input("Mikä on ikänne?\nVastaus kokonaislukuna: ")) # DEBUG - LAITA PÄÄLLE LOPULLISESSA VERSIOSSA
@@ -44,6 +42,7 @@ from pelaaja import Pelaaja
 # pelaajan_ika = 20 # DEBUG - LAITA POIS LOPULLISESSA VERSIOSSA
 
 # -- Huoneet --
+
 huone_2_2 = Huone("Asunto", "auto", "auto", "auto", "auto", "asunnossanne", "Niin paljon huonekaluja, perheen muistoesineitä ja kodinkoneita... Mitään niistä ei voi juoda. Jatkakaa.")
 huone_2_3 = Huone("Käytävä", "auto", "auto", huone_2_2, "auto", "asuntorakennuksen käytävässä", "Hmm. Ramin etuovi pohjoisessa on auki...")
 huone_2_4 = Huone("Ramin asunto", "auto", "auto", huone_2_3, "auto", "ramin asunnossa", "Asunto on tyhjä? Hän aina valitti köyhyyttään, mutta tämä tuli yllätyksenä. Hetkinen, lattialla on lappu...")
@@ -70,6 +69,7 @@ for huone in Huone.lista_huoneista:
     huone.korjaa_huoneet()
 
 # -- Esineet --
+
 kartta = Luettava("Kartta", 0.1, (f"Kartassa lukee: 'Kartta on keskeneräinen. ASCII kartta tulossa, ehkä.'"))
 rami_lappu_1 = Luettava("Ramin lappu", 0.1, (f"Lapussa lukee: '{pelaajan_nimi}, minun lähdettyäni olet ainoa sielu koko kylässä.\nEn ole dorka; tiedän, että huomasit, kuinka varastin pressan huvilasta juomavettä kaikki nämä vuodet. Aion jättää tämän tiedon sinulle, hyvä ystäväni. Eksäni talossa on lisää tietoa. Ainoa nainen koko rakennuksessa.'"))
 rami_lappu_2 = Luettava("Ramin lappu 2", 0.1, (f"Lapussa lukee: '{pelaajan_nimi}, pressan huvilaan on kolme reittiä. Ikkuna, seinästä läpi tai piilotettu, maanalainen tunneli. Ikkuna on rakennuksen eteläisessä seinässä, heikko muuraus pohjoisessa ja tunneli on kadun lähellä piilossa.'"))
@@ -79,9 +79,10 @@ tikkaat = Esine("Tikkaat", 10, "Tikkaat eivät yksistään tee mitään.")
 malja = Luettava("Graalin malja", 1, "\n¨'-.    VOITITTE         ,-^-.__,,_,.-'-.___\n     `^-._+' .   `+_,--'\n      PELIN_,.--''\nOlette saaneet vettä janoonne. Juodessanne graalista mietitte, onko avaruutta enää edes olemassa.\nVoitte jatkaa pelaamista, jos jotain jäi hampaan väliin.", True)
 
 # -- Mekanismit (eivät muutu tallennustiedoston mukaan, joten lisätään täällä) --
+
 kasa = Este("Kasa huonekaluja", huone_3_3, "Siirsitte huonekalut pois etuoven tieltä. Kova urakka. Eivätpä estäneet tulvaa. Eivätkä janovuosia.", True, "auto", False, "auto", "auto")
 huone_3_3.lisaa_mekanismi(kasa)
-ikkuna = Este("Ikkuna", huone_6_2, "Pääsitte ikkunan luokse ja avasitte sen.", True, False, "auto", "auto", "auto", tikkaat)
+ikkuna = Este("Ikkuna", huone_6_2, "Pääsitte ikkunan luokse ja avasitte sen.", False, False, "auto", "auto", "auto", tikkaat)
 huone_6_2.lisaa_mekanismi(ikkuna)
 kaivinkone = Kaivinkone("Kaivinkone", huone_6_4)
 huone_6_4.lisaa_mekanismi(kaivinkone)
@@ -97,6 +98,7 @@ else:
         tallennuksen_nimi = input ("Kirjoita edellisen pelaajan nimi. Jos et muista, tarkista pelin tiedostoista '(nimi).json'-tiedosto. Isoilla kirjaimilla on väliä: ")
         with open (f"{tallennuksen_nimi}.json", "r") as tallennus:
             data_luettu = json.load(tallennus)
+
         pelaajan_nimi = data_luettu["pelaajan nimi"]
         pelaajan_ika = data_luettu["pelaajan ikä"]
         pelaajan_esineet = data_luettu["pelaajan esineet"]
@@ -118,14 +120,18 @@ else:
                 for esine in Esine.lista_esineista:
                     if esine.id == esine_id:
                         huone.lisaa_esine(esine)
+           
             # -- Ladataan esteet --
+
             huone.pohjoinen_estetty, huone.ita_estetty, huone.etela_estetty, huone.lansi_estetty = data_luettu[str(huone.id) + "esteet"]
 
-        # -- Pelaajan ohjaaminen -- 
+        # -- PELAAJAN OHJAAMINEN -- 
 
         while pelaaja.valikko() != "0":
             if pelaaja.valikko() == "0":
                 break
+
+        # --------------------------
 
         # -- Tallentaminen --
 
@@ -161,13 +167,15 @@ else:
         pelaaja = Pelaaja(pelaajan_nimi, huone_2_2)
 
         # -- PELAAJAN OHJAAMINEN --
+
         while pelaaja.valikko() != "0":
             if pelaaja.valikko() == "0":
                 break
+
         # --------------------------
 
         # -- Tallentaminen --
-        # Mekanismien statusta ei vielä tallenneta. Ei riko peliä.
+        # Mekanismien statusta ei tallenneta. Tuskin rikkoo pelin.
 
         pelaaja_esineet_serialisoitu = []
         for esine in pelaaja.esineet:
@@ -186,5 +194,7 @@ else:
         
         with open (f"{pelaajan_nimi}.json", "w") as tallennus:
             json.dump(tallennus_data, tallennus)
+    elif numerovalinta == "3":
+        print ("Hyvää päivänjatkoa.")
     else:
         print ("No ei sit pelata peliä.")
