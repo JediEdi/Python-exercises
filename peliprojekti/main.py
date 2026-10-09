@@ -10,18 +10,30 @@ with open ("intro.txt", "r", encoding="utf-8") as tiedosto:
 input ("Kirjoittakaa jotain, jos haluatte vihdoin peliin: ")
 
 def paavalikko():
-    numerovalinta = input ("\nMinkä komennon haluatte suorittaa?\n1: Uusi peli\n2: Lataa peli\n3: Poistu pelistä\nVastaus: ")
+    while True:
+        try:
+            numerovalinta = input ("\nMinkä komennon haluatte suorittaa?\n1: Uusi peli\n2: Lataa peli\n3: Poistu pelistä\nVastaus: ")
+            break
+        except ValueError:
+            print ("Kirjoittakaa joku edellä olevista numeroista. Pliide.")
 
     if numerovalinta == "1":
-        return numerovalinta, custom_nimet
+        return numerovalinta
     elif numerovalinta == "2":
-        return numerovalinta, custom_nimet
+        return numerovalinta
     elif numerovalinta == "3":
         print ("\nMoro.")
-        return numerovalinta, custom_nimet
+        return numerovalinta
 
 pelaajan_nimi = input("Mikä on nimenne?\nVastaus: ") # DEBUG - LAITA PÄÄLLE LOPULLISESSA VERSIOSSA
-pelaajan_ika = int(input("Mikä on ikänne?\nVastaus kokonaislukuna: ")) # DEBUG - LAITA PÄÄLLE LOPULLISESSA VERSIOSSA
+while True:
+    try:
+        pelaajan_ika = int(input("Mikä on ikänne?\nVastaus kokonaislukuna: ")) # DEBUG - LAITA PÄÄLLE LOPULLISESSA VERSIOSSA
+        break
+    except ValueError:
+        print ("Kirjoittakaa kokonaisluku.")
+if pelaajan_ika < 0:
+    print ("\nHyvä läppä. Arvatkaa mitä:")
 
 import json
 from esineet import Esine, Luettava
@@ -77,8 +89,7 @@ huone_6_4.lisaa_mekanismi(kaivinkone)
 if pelaajan_ika < 12:
     print ("\nOlette alaikäinen. Ette voi pelata.")
 else:
-    custom_nimet = ["Testeri2", "Testeri3", "Testeri4"] # DEBUG - LAITA POIS LOPULLISESSA VERSIOSSA
-    numerovalinta, custom_nimet = paavalikko() # DEBUG - LAITA PÄÄLLE LOPULLISESSA VERSIOSSA
+    numerovalinta = paavalikko() # DEBUG - LAITA PÄÄLLE LOPULLISESSA VERSIOSSA
     if numerovalinta == "2":
 
         # -- Lataaminen --
@@ -148,10 +159,12 @@ else:
         huone_6_4.lisaa_esine(tikkaat)
         maali.lisaa_esine(malja)
         pelaaja = Pelaaja(pelaajan_nimi, huone_2_2)
-        
+
+        # -- PELAAJAN OHJAAMINEN --
         while pelaaja.valikko() != "0":
             if pelaaja.valikko() == "0":
                 break
+        # --------------------------
 
         # -- Tallentaminen --
         # Mekanismien statusta ei vielä tallenneta. Ei riko peliä.
@@ -173,3 +186,5 @@ else:
         
         with open (f"{pelaajan_nimi}.json", "w") as tallennus:
             json.dump(tallennus_data, tallennus)
+    else:
+        print ("No ei sit pelata peliä.")
