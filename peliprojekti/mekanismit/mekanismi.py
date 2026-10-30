@@ -1,6 +1,7 @@
 class Mekanismi():
     def __init__(self, nimi):
         self.nimi = nimi
+        # Ei ID:tä, koska mekanismin sijainti ei muutu. Se lisätään sijaintiinsa main.py:n sisällä.
 
     def kayta_mekanismi(self):
         print (f"Käytitte mekanismin {self.nimi}.")
@@ -12,7 +13,7 @@ class Mekanismi():
 class Este(Mekanismi):
     def __init__(self, nimi, vaikutusalue, toimintokuvaus = ("Käytitte mekanismin."), kertakayttoinen = False, esta_pohjoinen = False, esta_ita = False, esta_etela = False, esta_lansi = False, vaadittu_esine = "auto"):
         super().__init__(nimi)
-        self.vaikutusalue = vaikutusalue
+        self.vaikutusalue = vaikutusalue # MINKÄ huoneen yhteydet muutetaan. Itse mekanismin sijainti on erikseen.
         self.toimintokuvaus = toimintokuvaus
         self.kertakayttoinen = kertakayttoinen
         self.esta_pohjoinen = esta_pohjoinen
@@ -21,7 +22,7 @@ class Este(Mekanismi):
         self.esta_lansi = esta_lansi
         self.vaadittu_esine = vaadittu_esine
         self.mekanismi_vaihe = True # Jos False, vaikutus on päinvastainen. Pohjoisen sulkeminen olisi nyt pohjoisen avaaminen.
-        self.mekanismi_kaytettava = True
+        self.mekanismi_kaytettava = True # Muuttuu riippuen esim. kertakäyttöisyydestä.
 
     def kayta_mekanismi(self, pelaaja): # Jos haluaa huoneeseen estetyn suunnan pelin alusta asti, tämä pitää tehdä huonetta luodessa.
         if self.mekanismi_kaytettava == False:

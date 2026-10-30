@@ -88,23 +88,26 @@
 # henk1 = Henkilokunta("Lady", "Gagga", "Julggis", "Tylsistyttäminen")
 # henk1.ilmoita_tiedot()
 
-class Isa():
-    def __init__(self, auto):
-        self.auto = auto
+# class Isa():
+#     def __init__(self, auto):
+#         self.auto = auto
 
-class Aiti():
-    def __init__(self, ruoka):
-        self.ruoka = ruoka
+# class Aiti():
+#     def __init__(self, ruoka):
+#         self.ruoka = ruoka
 
-class Mina(Isa, Aiti):
-    def __init__(self, nimi, auto, ruoka):
-        Isa.__init__(self, auto) # ILMAN SUPERIA PITÄÄ PASSATA SELF!
-        Aiti.__init__(self, ruoka) # ILMAN SUPERIA PITÄÄ PASSATA SELF!
-        self.nimi = nimi
-        self.kaikki = (Isa.auto + Aiti.ruoka)
+# class Mina(Isa, Aiti):
+#     def __init__(self, nimi, auto, ruoka):
+#         Isa.__init__(self, auto) # ILMAN SUPERIA PITÄÄ PASSATA SELF!
+#         Aiti.__init__(self, ruoka) # ILMAN SUPERIA PITÄÄ PASSATA SELF!
+#         self.nimi = nimi
+#         self.kaikki = (Isa.auto + Aiti.ruoka)
 
-meikalainen = Mina("Jonne", "Saab", "Maksalaatikko")
-print (meikalainen.nimi)
-print (meikalainen.auto)
-print (meikalainen.ruoka)
-print (meikalainen.kaikki)
+# meikalainen = Mina("Jonne", "Saab", "Maksalaatikko")
+# print (meikalainen.nimi)
+# print (meikalainen.auto)
+# print (meikalainen.ruoka)
+# print (meikalainen.kaikki)
+
+print (2/1)
+print (2//1)

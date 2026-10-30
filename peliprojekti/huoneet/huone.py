@@ -6,7 +6,7 @@ class Huone():
         self.idassa = idassa
         self.etelassa = etelassa
         self.lannessa = lannessa
-        self.prepositio = prepositio
+        self.prepositio = prepositio # Olet {prepositio}ssa.
         self.kuvaus = kuvaus
         self.pohjoinen_estetty = pohjoinen_estetty
         self.ita_estetty = ita_estetty
@@ -14,10 +14,10 @@ class Huone():
         self.lansi_estetty = lansi_estetty
         self.esineet = []
         self.mekanismit = []
-        self.id = len(Huone.lista_huoneista)
+        self.id = len(Huone.lista_huoneista) # Käytetään tallentamiseen ja lataamiseen.
         Huone.lista_huoneista.append(self)
 
-    def korjaa_huoneet(self):
+    def korjaa_huoneet(self): # Estetään huoneita rikkomasta fysiikan lakeja ja mahdollistetaan kaksisuuntaiset yhteydet, mutta ei pakoteta niitä.
         if self.pohjoisessa == "auto":
             for huone in Huone.lista_huoneista:
                 if huone.etelassa == self:
@@ -63,17 +63,17 @@ class Huone():
         for esine in self.esineet:
             print (esine.nimi)
 
-    def serialisoi_esineet(self):
+    def serialisoi_esineet(self): # Tallennetaan esineiden ID:t.
         self.esineet_serialisoitu = []
         for esine in self.esineet:
             self.esineet_serialisoitu.append(esine.id)
         return self.esineet_serialisoitu
 
-    def serialisoi_esteet(self):
+    def serialisoi_esteet(self): # Tallennetaan, minne voi ja ei voi mennä.
         self.esteet_serialisoitu = [self.pohjoinen_estetty, self.ita_estetty, self.etela_estetty, self.lansi_estetty]
         return self.esteet_serialisoitu
 
-class Tyhja(Huone):
+class Tyhja(Huone): # Jos jossakin suunnassa ei ole mitää, siellä on tämä "huone".
     def __init__(self, nimi = "ei mitään", prepositio = "ei missään. Teidän ei kuuluisi olla täällä."):
         self.nimi = nimi
         self.prepositio = prepositio

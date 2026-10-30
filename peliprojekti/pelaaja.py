@@ -76,10 +76,10 @@ class Pelaaja():
             print (f"Saitte seuraavan esineeen: {esine.nimi}.")
             if esine.printtaaja == True:
                 esine.kayta_esine()
-            return True
+            return True # Esineen lisääminen tapahtuu.
         else:
             print (f"Esine ei mahdu tavaraluetteloonne. ({self.tilavuus} / {self.tilavuusraja}. Esineen tilavuus on {esine.tilavuus})")
-            return False
+            return False # Esineen lisääminen ei tapahdu.
 
     def pudota_esine(self, esine_numero):
         esine_numero -= 1
