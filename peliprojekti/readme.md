@@ -4,6 +4,20 @@
 
 ## Tietoa
 
+Pelin ohjeet ja tavoitteet ovat Python Exercises -kansion intro.txt ja ohjeet.txt -tiedostoissa.
+
+Pelissä otetaan erityisesti kaksi kestävän kehityksen tavoitetta huomioon:
+
+6: Puhdas vesi ja sanitaatio
+
+Pelissä aiheena on Suomen "janovuodet" noin 2600-luvulla.
+
+
+13: Ilmastotekoja
+
+...ei pelin maailmassa juurikaan tehty menneisyydessä. Tämän vuoksi miljöö kuvaa ilmastonmuutoksen aiheuttamaa katastrofia
+
+
 **Rakenne**
 
     Peliprojekti
