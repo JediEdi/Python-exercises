@@ -109,5 +109,11 @@
 # print (meikalainen.ruoka)
 # print (meikalainen.kaikki)
 
-print (2/1)
-print (2//1)
+# print (2/1)
+# print (2//1)
+
+def factorial_functional(n):
+    return 1 if n == 0 else n * factorial_functional(n - 1)
+
+# Usage
+print(factorial_functional(5))  # Output: 120
